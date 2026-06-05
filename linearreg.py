@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split  #80% → Training 20% → Testing
 from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import (mean_absolute_error,mean_squared_error,r2_score)
 data = {
     "Time": [
@@ -63,3 +64,44 @@ corrected_position = (
     - predicted_error[0]
 )
 print(corrected_position)
+##NOW RANDOM FOREST
+model2=LinearRegression()
+model2=RandomForestRegressor(n_estimators=100,random_state=42)
+model2.fit(X_train,y_train)
+prediction2=model2.predict(X_test)
+mae2 = mean_absolute_error(
+    y_test,
+    prediction2
+)
+
+print(mae2)
+rmse2 = np.sqrt(
+    mean_squared_error(
+        y_test,
+        prediction2
+    )
+)
+
+print(rmse2)
+r22 = r2_score(
+    y_test,
+    prediction2
+)
+
+print(r22)
+new_data2 = pd.DataFrame({
+    "Time":[160],
+    "Temp":[39],
+    "CmdPos":[300]
+})
+predicted_error2 = model2.predict(
+    new_data2
+)
+
+print(predicted_error2)
+corrected_position2 = (
+    300 -
+    predicted_error2[0]
+)
+
+print(corrected_position2)
