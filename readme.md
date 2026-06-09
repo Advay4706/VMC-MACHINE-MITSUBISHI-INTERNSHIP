@@ -178,5 +178,7 @@ This project provides practical exposure to:
 ---
 ## Author
 Advay
+
 Engineering Internship Project
-Mitsubishi Electric CNC Peeyna Centre
+
+Mitsubishi Electric CNC eXperience Centre Peenya,Bengaluru
