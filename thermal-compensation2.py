@@ -57,6 +57,7 @@ data = {
         0.146
     ]
 }
+#Feature Engineering
 df = pd.DataFrame(data)
 df["HeatIndex"] = (
     df["SpindleRPM"]
@@ -168,6 +169,7 @@ print(
         prediction2
     )
 )
+#to check the importance of each feature used 
 importance = pd.DataFrame({
     "Feature": X.columns,
     "Importance": model2.feature_importances_
